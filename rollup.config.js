@@ -67,7 +67,7 @@ export default {
 		// Copy static files
 		copy({
 			targets: [
-				{ src: 'static/index.html', dest: 'public/' },
+				{ src: 'static/*', dest: 'public/' },
 			]
 		}),
 

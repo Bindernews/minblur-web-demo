@@ -2,18 +2,11 @@ import { EditorState } from "@codemirror/basic-setup";
 import { ViewUpdate, ViewPlugin } from "@codemirror/view";
 
 /**
- * @callback DocChangeCallback
- * @param {EditorState} state
- * @returns {void}
- */
-
-/**
- * 
  * @param {number} timeout Seconds to delay before firing callback
- * @param {DocChangeCallback} cb
+ * @param {function(EditorState):void} cb
  * @returns {ViewPlugin}
  */
-export default function callbackOnDocChange(timeout, cb) {
+export function callbackOnDocChange(timeout, cb) {
   return ViewPlugin.fromClass(class {
     constructor(_view) {
       this.dom = null;
