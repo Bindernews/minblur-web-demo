@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import wasm from '@rollup/plugin-wasm';
 import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
+import copy from 'rollup-plugin-copy';
 import css from 'rollup-plugin-css-only';
 
 const production = !process.env.ROLLUP_WATCH;
@@ -62,6 +63,13 @@ export default {
 			dedupe: ['svelte']
 		}),
 		commonjs(),
+
+		// Copy static files
+		copy({
+			targets: [
+				{ src: 'static/index.html', dest: 'public/' },
+			]
+		}),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
