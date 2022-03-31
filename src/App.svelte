@@ -8,7 +8,7 @@
 
   const PROJECT_URL = "https://github.com/bindernews/minblur";
   const DEMO_TEXT = "# Minblur live demo!\n  set i 1\nloop:\n  op add i i 1\n"
-    + "  m! jump (i % 1000 > 0) loop\n  print i\n  printflush message1\n  m! jump loop";
+    + "  m! jump(loop, i % 1000 > 0)\n  print i\n  printflush message1\n  m! jump(loop)";
 
   let inputText = writable("");
   let statusPanel = writable({
